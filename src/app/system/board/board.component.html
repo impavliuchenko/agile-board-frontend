@@ -43,20 +43,13 @@
               <tbody>
               <tr>
                 <td>
-                  <p></p>
-                  <p *ngFor="let ticket of tickets">
-                      <b *ngIf = "ticket.status=='TODO'">{{ticket.name}}</b>
-                  </p>
+                  <p *ngFor="let ticket of tickets | ticketFilter: 'TODO'">{{ticket.name}}</p>
                 </td>
                 <td>
-                  <p *ngFor="let ticket of tickets">
-                    <b *ngIf = "ticket.status=='IN_PROGRESS'">{{ticket.name}}</b>
-                  </p>
+                  <p *ngFor="let ticket of tickets | ticketFilter: 'IN_PROGRESS'">{{ticket.name}}</p>
                 </td>
                 <td>
-                  <p *ngFor="let ticket of tickets">
-                    <b *ngIf = "ticket.status=='DONE'">{{ticket.name}}</b>
-                  </p>
+                  <p *ngFor="let ticket of tickets| ticketFilter: 'DONE'">{{ticket.name}}</p>
                 </td>
               </tr>
               </tbody>
