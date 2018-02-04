@@ -55,6 +55,10 @@ export class BoardComponent implements OnInit {
     });
   }
 
+  deleteTicket(href: string) {
+    this.ticketService.deleteTicket(href).subscribe();
+  }
+
   onSubmit() {
     const formData = this.form.value;
     this.ticketService.addTicket(formData).subscribe();

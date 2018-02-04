@@ -82,6 +82,7 @@
                     </div>
                     <div class="card-footer">
                       <button (click)="toProgess(ticket['_links']['progress'].href)"  class="btn-xs">Take task</button>
+                      <button (click)="toProgess(ticket['_links']['delete'].href)"class="btn-xs btn-danger">Delete</button>
                     </div>
                   </div>
                 </td>
@@ -113,6 +114,7 @@
                     </div>
                     <div class="card-footer">
                       <button (click)="toProgess(ticket['_links']['progress'].href)" class="btn-xs">Return task</button>
+                      <button (click)="toProgess(ticket['_links']['delete'].href)"class="btn-xs btn-danger">Delete</button>
                     </div>
                   </div>
                 </td>

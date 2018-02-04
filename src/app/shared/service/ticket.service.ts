@@ -47,6 +47,10 @@ export class TicketService {
     return this.http.post('http://localhost:8080/tickets', ticket, {headers: this.setHeader()});
   }
 
+  deleteTicket(href: string) {
+    return this.http.delete(href, {headers: this.setHeader()});
+  }
+
   setHeader() {
     const headers = new Headers({
       'X-Auth-Token': window.localStorage.getItem('token')
