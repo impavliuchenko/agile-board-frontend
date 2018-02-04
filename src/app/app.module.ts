@@ -11,6 +11,7 @@ import {UserService} from './shared/service/user.service';
 import {AuthService} from './shared/service/auth.service';
 import {AuthGuardService} from './shared/service/guard/auth-guard.service';
 import {CookieService} from 'ngx-cookie-service';
+import {TicketService} from './shared/service/ticket.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import {CookieService} from 'ngx-cookie-service';
     SystemModule,
     AppRoutingModule
   ],
-  providers: [UserService, AuthService, AuthGuardService, CookieService],
+  providers: [UserService, AuthService, AuthGuardService, CookieService, TicketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
