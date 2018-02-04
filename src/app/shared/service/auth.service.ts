@@ -29,7 +29,6 @@ export class AuthService {
     return JSON.parse(window.localStorage.getItem('auth'));
   }
   onLogin(user: User): Observable<Response> {
-    console.log(user);
     return this.http.post('http://localhost:8080/login', user);
   }
 

@@ -1,1 +1,10 @@
-td p {width: 280px}
+th {
+  text-align: center;
+}
+td {
+  width: 30%;
+}
+
+.btn-xs {
+  margin-left: 22px;
+}

@@ -5,6 +5,34 @@
     <!--</h3>-->
   <!--</div>-->
 
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control underlined"
+        id="name"
+        placeholder="Enter task name"
+        formControlName="name"
+      >
+    </div>
+
+    <div class="form-group" >
+      <label for="description">Description</label>
+      <input
+        type="text"
+        class="form-control underlined"
+        id="description"
+        placeholder="Description"
+        formControlName="description"
+      >
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-block btn-primary">Login</button>
+    </div>
+  </form>
+
   <section class="section">
     <div class="row">
       <div class="col-md-12">
@@ -43,13 +71,50 @@
               <tbody>
               <tr>
                 <td>
-                  <p *ngFor="let ticket of tickets | ticketFilter: 'TODO'">{{ticket.name}}</p>
+                  <div *ngFor="let ticket of tickets | ticketFilter: 'TODO'"class="card card-info">
+                    <div class="card-header">
+                      <div class="header-block">
+                        <p class="title">{{ticket.name}}</p>
+                      </div>
+                    </div>
+                    <div class="card-block">
+                      {{ticket.description}}
+                    </div>
+                    <div class="card-footer">
+                      <button (click)="toProgess(ticket['_links']['progress'].href)"  class="btn-xs">Take task</button>
+                    </div>
+                  </div>
                 </td>
                 <td>
-                  <p *ngFor="let ticket of tickets | ticketFilter: 'IN_PROGRESS'">{{ticket.name}}</p>
+                  <div *ngFor="let ticket of tickets | ticketFilter: 'IN_PROGRESS'"class="card card-warning">
+                    <div class="card-header">
+                      <div class="header-block">
+                        <p class="title">{{ticket.name}}</p>
+                      </div>
+                    </div>
+                    <div class="card-block">
+                      {{ticket.description}}
+                    </div>
+                    <div class="card-footer">
+                      <button (click)="toProgess(ticket['_links']['todo'].href)"class="btn-xs">Return task</button>
+                      <button (click)="toProgess(ticket['_links']['done'].href)"class="btn-xs">Task is done!</button>
+                    </div>
+                  </div>
                 </td>
                 <td>
-                  <p *ngFor="let ticket of tickets| ticketFilter: 'DONE'">{{ticket.name}}</p>
+                  <div *ngFor="let ticket of tickets | ticketFilter: 'DONE'"class="card card-success">
+                    <div class="card-header">
+                      <div class="header-block">
+                        <p class="title">{{ticket.name}}</p>
+                      </div>
+                    </div>
+                    <div class="card-block">
+                      {{ticket.description}}
+                    </div>
+                    <div class="card-footer">
+                      <button (click)="toProgess(ticket['_links']['progress'].href)" class="btn-xs">Return task</button>
+                    </div>
+                  </div>
                 </td>
               </tr>
               </tbody>
