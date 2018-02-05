@@ -31,8 +31,6 @@ export class BoardComponent implements OnInit{
 
   toTodo(href: string) {
     this.ticketService.toTodo(href).subscribe();
-    this.timeOut();
-    this.loadTickets();
     this.loadTickets();
 
   }
@@ -45,15 +43,11 @@ export class BoardComponent implements OnInit{
     //   }
     // });
     this.ticketService.toProgress(href).subscribe();
-    this.timeOut();
-    this.loadTickets();
     this.loadTickets();
 
   }
   toDone(href: string) {
     this.ticketService.toDone(href).subscribe();
-    this.timeOut();
-    this.loadTickets();
     this.loadTickets();
 
   }
@@ -67,8 +61,6 @@ export class BoardComponent implements OnInit{
 
   deleteTicket(href: string) {
     this.ticketService.deleteTicket(href).subscribe();
-    this.timeOut();
-    this.loadTickets();
     this.loadTickets();
 
   }
@@ -77,8 +69,6 @@ export class BoardComponent implements OnInit{
     const formData = this.form.value;
     this.ticketService.addTicket(formData).subscribe();
     this.loadTickets();
-    this.loadTickets();
 
   }
-  timeOut() {}
 }
