@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterContentInit, Component, DoCheck, OnInit} from '@angular/core';
 import {TicketService} from '../../shared/service/ticket.service';
 import {Response} from '@angular/http';
 import {User} from '../../shared/model/user.model';
@@ -12,7 +12,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.css']
 })
-export class BoardComponent implements OnInit {
+export class BoardComponent implements OnInit{
 
   tickets: Ticket[] = [];
   form: FormGroup;
@@ -28,9 +28,13 @@ export class BoardComponent implements OnInit {
     });
   }
 
+
   toTodo(href: string) {
     this.ticketService.toTodo(href).subscribe();
+    this.timeOut();
     this.loadTickets();
+    this.loadTickets();
+
   }
 
   toProgess(href: string) {
@@ -41,11 +45,17 @@ export class BoardComponent implements OnInit {
     //   }
     // });
     this.ticketService.toProgress(href).subscribe();
+    this.timeOut();
     this.loadTickets();
+    this.loadTickets();
+
   }
   toDone(href: string) {
     this.ticketService.toDone(href).subscribe();
+    this.timeOut();
     this.loadTickets();
+    this.loadTickets();
+
   }
 
   loadTickets() {
@@ -57,11 +67,18 @@ export class BoardComponent implements OnInit {
 
   deleteTicket(href: string) {
     this.ticketService.deleteTicket(href).subscribe();
+    this.timeOut();
+    this.loadTickets();
+    this.loadTickets();
+
   }
 
   onSubmit() {
     const formData = this.form.value;
     this.ticketService.addTicket(formData).subscribe();
     this.loadTickets();
+    this.loadTickets();
+
   }
+  timeOut() {}
 }
